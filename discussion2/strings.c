@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /****************************************
  * This series of tasks is meant to
@@ -25,6 +26,7 @@ void strings_task_1(char *buffer) {
     buffer[2] = '4';
     buffer[3] = '2';
     buffer[4] = '9';
+    buffer[5] = '\0';
 
     // TODO: Replace this with your code.
     
@@ -44,8 +46,8 @@ void strings_task_1(char *buffer) {
  * Using the strlen() function may help.
  ***************************************/
 void strings_task_2(char *buffer) {
-    for(int i = 0; i < sizeof(buffer); i++) {
-        // TODO: Replace this with your code.
+    for(int i = 0; i < strlen(buffer); i++) {
+        buffer[i] = toupper(buffer[i]);
     }
 }
 
@@ -61,8 +63,8 @@ void strings_task_2(char *buffer) {
  * worry about freeing the space used.
  ***************************************/
 char *strings_task_3(char *buffer) {
-    
-    // TODO: Replace this with your code.
-    return NULL;
+    char *ptr = malloc(sizeof(char)*strlen(buffer));
+    strcpy(ptr, buffer);
+    return ptr;
 
 }
